@@ -14,7 +14,7 @@ sudo mount -t vfat $partBoot /media/backup
 sudo cp -rfp /boot/* /media/backup/
 sudo umount /media/backup/
 sudo mount -t ext4 $partRoot /media/backup/
-cd /media
+cd /media/backup
 sudo dump -0uaf – / | sudo restore -rf -
 cd ~
 sudo umount /media
