@@ -10,13 +10,13 @@ partBoot=”${device}p1″
 partRoot=”${device}p2″
 sudo mkfs.vfat $partBoot
 sudo mkfs.ext4 $partRoot
-sudo mount -t vfat $partBoot /media
-sudo cp -rfp /boot/* /media/
-sudo umount /media
-sudo mount -t ext4 $partRoot /media/
+sudo mount -t vfat $partBoot /media/backup
+sudo cp -rfp /boot/* /media/backup/
+sudo umount /media/backup/
+sudo mount -t ext4 $partRoot /media/backup/
 cd /media
 sudo dump -0uaf – / | sudo restore -rf -
-cd
+cd ~
 sudo umount /media
 sudo kpartx -d $loopdevice
 sudo losetup -d $loopdevice
